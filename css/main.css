@@ -1,0 +1,385 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Firacode';
+    src: url(../fonts/FiraCode-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'Lobster';
+    src: url(../fonts/Lobster-Regular.ttf);
+}
+
+:root {
+    --primary-text: #333333;
+    --secondary-text: #666666;
+    --header-text: #6dc7d3;
+
+    font-family: 'Poppins';
+
+    ::-webkit-scrollbar {
+        width: 2px;
+        height: 2px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0);
+    }
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+body, html {
+    background-color: white;
+}
+
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    background-color: #00000000;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    transition: all ease-in-out 0.2s;
+}
+
+.navbar.scrolled {
+    background-color: #fff;
+    box-shadow: 0 0 20px 0 gray;
+}
+
+.navbar-end {
+    padding: 0 20px;
+}
+
+.navbar-end ul {
+    list-style: none;
+}
+
+.navbar-end ul li {
+    display: inline;
+    padding: 0 20px;
+}
+
+.navbar-end ul li a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #000;
+    font-size: 16px;
+    padding: 10px 0px;
+    transition: all 0.2s ease-in-out;
+}
+
+.navbar-end ul li a:hover {
+    font-weight: 800;
+    color: gray;
+}
+
+
+/* HERO */
+.hero-container {
+    background-image: url('/images/bg.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 40px 0;
+    height: 100vh;
+    margin-top: -80px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    display: flex;
+    width: 1400px;
+    margin: 0 auto;
+    align-items: center;
+    gap: 5px;
+}
+
+.hero-text {
+    opacity: 0;
+    transform: translateX(50%);
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.hero-text p {
+    color: var(--primary-text);
+    font-size: 20px;
+}
+
+.hero-text h2 {
+    color: var(--primary-text);
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.hero-text h1 {
+    color: #6dc7d3;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.hero-contact {
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.hero-contact-content {
+    display: flex;
+    gap: 3px;
+}
+
+.hero-contact-content img {
+    height: 20px;
+}
+
+.hero-contact-content p {
+    color: var(--primary-text);
+    font-size: 14px;
+}
+
+.hero-images {
+    position: relative;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.hero-images img {
+    height: 75vh;
+}
+
+.hero-popup {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 5px 30px 5px 10px;
+    box-shadow: 0px 3px 5px 3px rgba(128, 128, 128, 0.253);
+    border-radius: 15px;
+    position: absolute;
+}
+
+.hero-popup.popup1 {
+    bottom: 50px;
+    left: 50px;
+}
+
+.hero-popup.popup2 {
+    top: 70px;
+    right: 0px;
+}
+
+.hero-popup.popup3 {
+    top: 170px;
+    left: 120px;
+}
+
+.hero-popup-image {
+    padding: 15px;
+}
+
+.hero-popup-image img {
+    height: 20px;
+}
+
+.hero-popup h6 {
+    color: var(--primary-text);
+    font-size: 24px;
+    line-height: 1;
+}
+
+.hero-popup p {
+    font-size: 17px;
+    color: gray;
+}
+
+/* ABOUT ME */
+.aboutme-container {
+    background-color: #E0F7FA;
+    opacity: 0;
+    transform: translateY(25%);
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.aboutme-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.aboutme-name {
+    flex-basis: 50%;
+    color: var(--primary-text);
+}
+
+.aboutme-name h6 {
+    padding: 0 40px;
+    font-weight: 400;
+    font-size: 30px;
+    font-family: 'Lobster';
+}
+
+.aboutme-name h2 {
+    font-weight: 900;
+    font-size: 90px;
+    line-height: 1;
+}
+
+.aboutme-name p {
+    color: var(--secondary-text);
+}
+
+.aboutme-socials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "img1 img1"
+        "img2 img3"
+        "img2 img4"
+    ;
+    flex-basis: 50%;
+}
+
+.aboutme-socials a {
+    background-repeat: no-repeat;
+    background-size: 120%;
+    background-position: center;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+}
+
+
+
+.aboutme-socials a:nth-child(1) {
+    background-size: 100%;
+    width: 100%;
+    height: 20vh;
+    grid-area: img1;
+    background-image: url('../images/sc3.png');
+}
+
+
+.aboutme-socials a:nth-child(2) {
+    width: 100%;
+    background-size: 130%;
+    height: 30vh;
+    grid-area: img2;
+    background-image: url('../images/sc2.png');
+}
+
+.aboutme-socials a:nth-child(3) {
+    width: 100%;
+    height: 15vh;
+    grid-area: img3;
+    background-image: url('../images/sc1.png');
+}
+
+.aboutme-socials a:nth-child(4) {
+    width: 100%;
+    height: 15vh;
+    grid-area: img4;
+    background-image: url('../images/sc4.png');
+}
+
+.aboutme-socials a:hover {
+    background-size: 140%;
+}
+
+/* SKILL */
+.skill-container {
+    background-color: #fff;
+    padding: 40px 0;
+    opacity: 0;
+    transform: translateY(25%);
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.skill-content h2 {
+    text-align: center;
+    padding: 0 0 20px 0;
+}
+
+.skill-programming {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.programming-content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.programming-image img {
+    height: 64px;
+    width: 64px;
+}
+
+.programming-text h4 {
+    padding-left: 5px;
+    font-family: 'FiraCode';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.prgramprogramming-text-images .programming-text-images {
+    display: flex;
+    gap: 5px;
+}
+
+.programming-text-images img {
+    width: 40px;
+    margin-top: -10px;
+}
+
+.skill-content .skills-text {
+    text-align: center;
+    padding: 20px 50px 40px 50px;
+}
+
+.skill-content .additional-skills {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'FiraCode';
+}
+
+/* == DONT REMOVE ==  */
+.intro-active {
+    transform: translateX(0);
+    transform: translateY(0);
+    opacity: 1;
+}
+/* ================= */

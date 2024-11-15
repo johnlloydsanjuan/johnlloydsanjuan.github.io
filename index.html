@@ -255,6 +255,28 @@
       </div>
     </div>
 
+    <div class="projects-container">
+      <div class="projects-content wrapper">
+        <div class="project-gallery1">
+          <img src="/images/sc1.png" class="main-photo" alt="" />
+          <div class="hidden-photos1" style="display: none">
+            <img src="/images/sc2.png" class="photo" alt="" />
+            <img src="/images/sc3.png" class="photo" alt="" />
+            <img src="/images/sc4.png" class="photo" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="projectbox" style="display: none">
+      <span class="close">&times;</span>
+      <img class="projectbox-image" src="" alt="Selected Photo" />
+      <div class="controls">
+        <button class="prev">Previous</button>
+        <button class="next">Next</button>
+      </div>
+    </div>
+
     <footer class="footer-container">
       <div class="footer-content wrapper">
         <div class="footer-text">
@@ -355,6 +377,13 @@
               ".skill-content, .programming-container1, .programming-container2"
             ).removeClass("intro-active");
           }
+
+          let footerTop = $(".footer-content").offset().top;
+          if (windowBottom > footerTop) {
+            $(".footer-content").addClass("intro-active");
+          } else {
+            $(".footer-content").removeClass("intro-active");
+          }
         });
 
         $(".scroll-btn").click(function (e) {
@@ -366,6 +395,37 @@
             },
             500
           );
+        });
+
+        let currentIndex = 0;
+        const photos = $(".hidden-photos1 img");
+        $(".main-photo").click(function () {
+          currentIndex = 0;
+          showProjectbox();
+        });
+
+        function showProjectbox() {
+          const imgSrc =
+            currentIndex === 0
+              ? $(".main-photo").attr("src")
+              : photos.eq(currentIndex - 1).attr("src");
+          $(".projectbox-image").attr("src", imgSrc);
+          $(".projectbox").show();
+        }
+
+        $(".close").click(function () {
+          $(".projectbox").hide();
+        });
+
+        $(".next").click(function () {
+          currentIndex = (currentIndex + 1) % (photos.length + 1);
+          showProjectbox();
+        });
+
+        $(".prev").click(function () {
+          currentIndex =
+            (currentIndex - 1 + photos.length + 1) % (photos.length + 1);
+          showProjectbox();
         });
       });
     </script>

@@ -282,11 +282,11 @@
             $(".aboutme-container").removeClass("intro-active");
           }
 
-          let skillTop = $(".skill-container").offset().top;
+          let skillTop = $(".skill-content").offset().top;
           if (windowBottom > skillTop) {
-            $(".skill-container").addClass("intro-active");
+            $(".skill-content, .programming-container1, .programming-container2").addClass("intro-active");
           } else {
-            $(".skill-container").removeClass("intro-active");
+            $(".skill-content, .programming-container1, .programming-container2").removeClass("intro-active");
           }
         });
 
@@ -295,7 +295,7 @@
           const target = $(this).data("target");
           $("html, body").animate(
             {
-              scrollTop: $(target).offset().top,
+              scrollTop: $(target).offset().top - 180,
             },
             500
           );

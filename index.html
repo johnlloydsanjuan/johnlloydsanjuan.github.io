@@ -17,7 +17,9 @@
             <a href="">ABOUT ME</a>
           </li>
           <li class="scroll-btn"><a href="">PROJECTS</a></li>
-          <li class="scroll-btn"><a href="">CONTACTS</a></li>
+          <li class="scroll-btn" data-target=".footer-container">
+            <a href="">CONTACTS</a>
+          </li>
         </ul>
       </div>
     </header>
@@ -58,7 +60,7 @@
           <p>Hello there! I'm a</p>
           <h2>PHP FULLSTACK</h2>
           <h1>WEB DEVELOPER</h1>
-          <p>How can i help you?</p>
+          <p>Let me help you build your website!</p>
           <div class="hero-contact">
             <div class="hero-contact-content">
               <img src="/images/email.png" alt="" />
@@ -70,7 +72,7 @@
             </div>
             <div class="hero-contact-content">
               <img src="/images/location.png" alt="" />
-              <p>Morong, Rizal</p>
+              <p>Rizal, Philippines</p>
             </div>
           </div>
         </div>
@@ -238,23 +240,84 @@
           my skills and deliver results that make a difference.
         </p>
         <h2>Additional Skills</h2>
-        <div class="additional-skills">
-          <p>HTML</p>
-          <p>CSS</p>
-          <p>MySQL</p>
-          <p>PHPMyAdmin</p>
-          <p>SQLite</p>
-          <p>Adobe XD</p>
-          <p>Adobe Premire Pro</p>
-          <p>Figma</p>
-          <p>Canva</p>
-          <p>Micosoft Office</p>
-        </div>
+        <ul class="additional-skills">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>MySQL</li>
+          <li>PHPMyAdmin</li>
+          <li>SQLite</li>
+          <li>Adobe XD</li>
+          <li>Adobe Premiere Pro</li>
+          <li>Figma</li>
+          <li>Canva</li>
+          <li>Micosoft Office</li>
+        </ul>
       </div>
     </div>
 
     <footer class="footer-container">
-      <div class="footer-content wrapper"></div>
+      <div class="footer-content wrapper">
+        <div class="footer-text">
+          <h2>San1</h2>
+          <div class="footer-text-secondary">
+            <img src="/images/heart.png" alt="" />
+            <p>Built with passion and hardwork.</p>
+          </div>
+          <div class="footer-text-active">
+            <img src="/images/button.png" alt="" />
+            <p>Always active for commisions.</p>
+          </div>
+        </div>
+        <div class="footer-sitemap">
+          <h4 class="footer-headers">GENERAL</h4>
+          <ul>
+            <li class="scroll-btn" data-target=".hero-container">
+              <a href="">Home</a>
+            </li>
+            <li class="scroll-btn" data-target=".aboutme-container">
+              <a href="">About Me</a>
+            </li>
+            <li class="scroll-btn"><a href="">Projects</a></li>
+            <li class="scroll-btn" data-target=".footer-container">
+              <a href="">Contacts</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-headers">FOLLOW ME</h4>
+          <ul>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/john-lloyd-san-juan-7a9b21310/"
+                >Linkedin</a
+              >
+            </li>
+            <li><a href="https://github.com/johnlloydsanjuan">Github</a></li>
+            <li>
+              <a href="https://www.instagram.com/iaintsan1/">Instagram</a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/jhonlloyd.sanjuan/">Facebook</a>
+            </li>
+            <li>
+              <a href="https://www.upwork.com/freelancers/~01d2bcb69594b57b43"
+                >Upwork</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4 class="footer-headers">CONTACT ME</h4>
+          <ul>
+            <li><p>businesslikesan1@gmail.com</p></li>
+            <li><p>+63 929 1753 137</p></li>
+            <li><p>Morong, Rizal Philippines(PH)</p></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-end">
+        <center>Copyright © johnlloydsanjuan. All rights reserved.</center>
+      </div>
     </footer>
 
     <script src="./js/jquery-3.7.1.min.js"></script>
@@ -284,9 +347,13 @@
 
           let skillTop = $(".skill-content").offset().top;
           if (windowBottom > skillTop) {
-            $(".skill-content, .programming-container1, .programming-container2").addClass("intro-active");
+            $(
+              ".skill-content, .programming-container1, .programming-container2"
+            ).addClass("intro-active");
           } else {
-            $(".skill-content, .programming-container1, .programming-container2").removeClass("intro-active");
+            $(
+              ".skill-content, .programming-container1, .programming-container2"
+            ).removeClass("intro-active");
           }
         });
 

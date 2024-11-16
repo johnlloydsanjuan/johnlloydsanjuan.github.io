@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>San1</title>
+    <title>johnlloydsanjuan</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png" />
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
@@ -16,7 +17,7 @@
           <li class="scroll-btn" data-target=".aboutme-container">
             <a href="">ABOUT ME</a>
           </li>
-          <li class="scroll-btn"><a href="">PROJECTS</a></li>
+          <li class="scroll-btn" data-target=".projects-container"><a href="">PROJECTS</a></li>
           <li class="scroll-btn" data-target=".footer-container">
             <a href="">CONTACTS</a>
           </li>
@@ -102,7 +103,7 @@
 
     <div class="skill-container">
       <div class="skill-content wrapper">
-        <h2>Technical Skills</h2>
+        <h2>Know more about my skills...</h2>
         <div class="skill-programming">
           <div class="programming-container1">
             <div class="programming-content">
@@ -239,7 +240,7 @@
           contribute effectively to any team. I’m driven by a desire to expand
           my skills and deliver results that make a difference.
         </p>
-        <h2>Additional Skills</h2>
+        <h4 class="skills-title">Additional Skills</h4>
         <ul class="additional-skills">
           <li>HTML</li>
           <li>CSS</li>
@@ -253,6 +254,51 @@
           <li>Micosoft Office</li>
         </ul>
       </div>
+    </div>
+
+    <div class="projects-container">
+      <div class="projects-content wrapper">
+        <div class="projects-title">
+          <h2>Check out my self-made projects!</h2>
+        </div>
+        <div class="project-gallery1">
+          <div class="project-images">
+            <center>
+              <img src="/images/project1/mainphoto1.jpeg" class="main-photo1" />
+              <p>click the image for more photos...</p>
+            </center>
+            <div class="hidden-photos1" style="display: none">
+              <img src="/images/project1/p1_photo1.png" class="photo" />
+              <img src="/images/project1/p1_photo2.png" class="photo" />
+              <img src="/images/project1/p1_photo3.png" class="photo" />
+              <img src="/images/project1/p1_photo4.png" class="photo" />
+              <img src="/images/project1/p1_photo5.png" class="photo" />
+              <img src="/images/project1/p1_photo6.png" class="photo" />
+              <img src="/images/project1/p1_photo7.png" class="photo" />
+              <img src="/images/project1/p1_photo8.png" class="photo" />
+              <img src="/images/project1/p1_photo9.png" class="photo" />
+              <img src="/images/project1/p1_photo10.png" class="photo" />
+            </div>
+          </div>
+          <div class="project-text">
+            <h3>Management Information System for MDRRMO Morong, Rizal</h3>
+            <ul>
+              <li>Map Pinpoint function</li>
+              <li>User Registration</li>
+              <li>OTP Verification</li>
+              <li>Email Sending</li>
+              <li>Admin Dashboard</li>
+              <li>Dark Mode</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="projectbox" style="display: none">
+      <span class="close">&times;</span>
+      <img class="projectbox-image" src="" alt="Selected Photo" />
+        <button class="prev"></button>
+        <button class="next"></button>
     </div>
 
     <footer class="footer-container">
@@ -277,7 +323,7 @@
             <li class="scroll-btn" data-target=".aboutme-container">
               <a href="">About Me</a>
             </li>
-            <li class="scroll-btn"><a href="">Projects</a></li>
+            <li class="scroll-btn" data-target=".projects-container"><a href="">Projects</a></li>
             <li class="scroll-btn" data-target=".footer-container">
               <a href="">Contacts</a>
             </li>
@@ -324,36 +370,50 @@
     <script>
       $(document).ready(function () {
         setTimeout(function () {
-          $(".hero-images, .hero-text").addClass("intro-active");
+          $(".hero-images, .hero-text").addClass("animate");
         }, 100);
 
         $(window).scroll(function () {
           if ($(window).scrollTop() > 200) {
             $(".navbar").addClass("scrolled");
-            $(".hero-images, .hero-text").removeClass("intro-active");
+            $(".hero-images, .hero-text").removeClass("animate");
           } else {
             $(".navbar").removeClass("scrolled");
-            $(".hero-images, .hero-text").addClass("intro-active");
+            $(".hero-images, .hero-text").addClass("animate");
           }
 
           let windowBottom = $(window).scrollTop() + $(window).height();
 
           let aboutMeTop = $(".aboutme-container").offset().top;
           if (windowBottom > aboutMeTop) {
-            $(".aboutme-container").addClass("intro-active");
+            $(".aboutme-container").addClass("animate");
           } else {
-            $(".aboutme-container").removeClass("intro-active");
+            $(".aboutme-container").removeClass("animate");
           }
 
           let skillTop = $(".skill-content").offset().top;
           if (windowBottom > skillTop) {
             $(
               ".skill-content, .programming-container1, .programming-container2"
-            ).addClass("intro-active");
+            ).addClass("animate");
           } else {
             $(
               ".skill-content, .programming-container1, .programming-container2"
-            ).removeClass("intro-active");
+            ).removeClass("animate");
+          }
+
+          let projectTop = $(".projects-container").offset().top;
+          if (windowBottom > projectTop) {
+            $(".projects-content, .project-gallery1").addClass("animate");
+          } else {
+            $(".projects-content, .project-gallery1").removeClass("animate");
+          }
+
+          let footerTop = $(".footer-content").offset().top;
+          if (windowBottom > footerTop) {
+            $(".footer-content").addClass("animate");
+          } else {
+            $(".footer-content").removeClass("animate");
           }
         });
 
@@ -366,6 +426,37 @@
             },
             500
           );
+        });
+
+        let currentIndex = 0;
+        const photos = $(".hidden-photos1 img");
+        $(".main-photo1").click(function () {
+          currentIndex = 0;
+          showProjectbox();
+        });
+
+        function showProjectbox() {
+          const imgSrc =
+            currentIndex === 0
+              ? $(".main-photo1").attr("src")
+              : photos.eq(currentIndex - 1).attr("src");
+          $(".projectbox-image").attr("src", imgSrc);
+          $(".projectbox").show();
+        }
+
+        $(".close").click(function () {
+          $(".projectbox").hide();
+        });
+
+        $(".next").click(function () {
+          currentIndex = (currentIndex + 1) % (photos.length + 1);
+          showProjectbox();
+        });
+
+        $(".prev").click(function () {
+          currentIndex =
+            (currentIndex - 1 + photos.length + 1) % (photos.length + 1);
+          showProjectbox();
         });
       });
     </script>

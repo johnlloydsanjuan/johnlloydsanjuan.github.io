@@ -502,12 +502,17 @@ body, html {
 
 .close {
     position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 30px;
+    top: 15px;
+    right: 25px;
+    padding: 10px;
+    font-size: 40px;
     color: white;
     cursor: pointer;
     z-index: 1000;
+    transition: color ease-in-out 0.2s;
+}
+.close:hover {
+    color: rgba(255, 0, 0, 0.5);
 }
 
 /* FOOTER */

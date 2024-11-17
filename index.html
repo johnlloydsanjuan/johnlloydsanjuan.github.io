@@ -411,9 +411,9 @@
 
           let footerTop = $(".footer-content").offset().top;
           if (windowBottom > footerTop) {
-            $(".footer-content").addClass("animate");
+            $(".footer-content, .footer-text, .footer-sitemap, .footer-links, .footer-contact").addClass("animate");
           } else {
-            $(".footer-content").removeClass("animate");
+            $(".footer-content, .footer-text, .footer-sitemap, .footer-links, .footer-contact").removeClass("animate");
           }
         });
 
